@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCutApp", "MyCutApp\MyCutApp.csproj", "{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Debug|ARM.ActiveCfg = Debug|ARM
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Debug|ARM.Build.0 = Debug|ARM
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Debug|ARM.Deploy.0 = Debug|ARM
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Debug|x64.ActiveCfg = Debug|x64
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Debug|x64.Build.0 = Debug|x64
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Debug|x64.Deploy.0 = Debug|x64
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Debug|x86.ActiveCfg = Debug|x86
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Debug|x86.Build.0 = Debug|x86
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Debug|x86.Deploy.0 = Debug|x86
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Release|Any CPU.ActiveCfg = Release|x86
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Release|ARM.ActiveCfg = Release|ARM
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Release|ARM.Build.0 = Release|ARM
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Release|ARM.Deploy.0 = Release|ARM
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Release|x64.ActiveCfg = Release|x64
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Release|x64.Build.0 = Release|x64
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Release|x64.Deploy.0 = Release|x64
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Release|x86.ActiveCfg = Release|x86
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Release|x86.Build.0 = Release|x86
+		{03A39C29-BD58-4AAE-803A-5F4D7F27BDC9}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B185E5A2-347B-4472-9A65-1FDCE5E51CA0}
+	EndGlobalSection
+EndGlobal

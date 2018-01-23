@@ -1,0 +1,151 @@
+﻿<Page
+    x:Class="MyCutApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCutApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:MyCutApp.Model"
+    Background="LightSeaGreen"
+ Loaded="Page_Load"
+     
+    mc:Ignorable="d">
+   
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <RelativePanel  Grid.Row="0">
+            <Image Name="TitleImage" Source="Assets/icon1.png" Height="40" Width="40" RelativePanel.AlignLeftWithPanel="True" Margin="20,0,0,0" Stretch="Fill" />
+            <TextBlock Text="富阳清雅房产经纪有限公司" FontSize="18" RelativePanel.RightOf="TitleImage" RelativePanel.AlignVerticalCenterWith="TitleImage" Margin="10,0,0,0"/>
+            <TextBlock Name="TimerText" Text="{x:Bind DateTimer,Mode=OneWay}" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="TitleImage" Margin="0,0,10,0"/>
+        </RelativePanel>
+        <Grid  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1.25*"/>
+                    <RowDefinition Height="1.25*"/>
+                    <RowDefinition Height="1.25*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text=" X:" Margin="10,0,0,0"  />
+                    <TextBlock x:Name="PX" Text="{x:Bind Xyr.Px,Mode=OneWay}" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text=" Y:" Margin="10,0,0,0"/>
+                    <TextBlock x:Name="PY" Text="{x:Bind Xyr.Py,Mode=OneWay}" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="RL:" Margin="10,0,0,0" />
+                    <TextBlock x:Name="RL" Text="{x:Bind Xyr.Rl,Mode=OneWay}" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="RR:" Margin="10,0,0,0" />
+                    <TextBlock x:Name="RR" Text="{x:Bind Xyr.Rr,Mode=OneWay}" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel   Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.ZIndex="1">
+                    <TextBlock Text="切割速度:"   />
+                    <TextBlock Text="{x:Bind Xyr.VelocityRatio,Mode=OneWay}" Margin="10,0,0,0" Width="30" />
+                    <TextBlock Text="%" Margin="0,0,0,0" />
+                </StackPanel>
+                <ProgressBar Name="MyProgressBar" Grid.Row="4" Margin="10,0,10,0" VerticalAlignment="Stretch" Minimum="0" Maximum="100"  Value="{x:Bind Xyr.VelocityRatio,Mode=OneWay}" Foreground="LightSeaGreen" />
+                <Grid Grid.Row="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <AppBarButton  Grid.Column="0" Grid.Row="0" Icon="Remove"    Label="减速" Name="SubSpeed"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="SubSpeed_Click"/>
+                    <AppBarButton  Grid.Column="1" Grid.Row="0"  Icon="Up"  Label="Y+" Name="PYCut"  Background="Gray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="PYCut_Click" ClickMode="Press"/>
+                    <AppBarButton  Grid.Column="2" Grid.Row="0" Icon="Add"  Label="加速" Name="AddSpeed"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="AddSpeed_Click"/>
+                    <AppBarButton  Grid.Column="0" Grid.Row="1" Icon="Back"  Label="X-" Name="NXCut"  Background="Gray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="NXCut_Click" ClickMode="Press"/>
+                    <ComboBox Grid.Column="1" Grid.Row="1"  Name="SetLength" Width="80" VerticalAlignment="Stretch" SelectedIndex="0"  SelectionChanged="SetLength_Changed" >
+                        <x:Int32 >0</x:Int32>
+                        <x:Int32>10</x:Int32>
+                        <x:Int32>20</x:Int32>
+                        <x:Int32>30</x:Int32>
+                        <x:Int32>50</x:Int32>
+                        <x:Int32>100</x:Int32>
+                        <x:Int32>500</x:Int32>
+                        <x:Int32>1000</x:Int32>
+                    </ComboBox>
+                    <AppBarButton  Grid.Column="2" Grid.Row="1" Icon="Forward"  Label="X+" Name="PXCut"  Background="Gray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="PXCut_Click" ClickMode="Press"/>
+                    <AppBarButton  Grid.Column="0" Grid.Row="2" Icon="Undo"  Label="左旋" Name="LfetTurn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="LfetTurn_Click" ClickMode="Press"/>
+                    <AppBarButton  Grid.Column="1" Grid.Row="2" Icon="Download"  Label="Y-" Name="NYCut"  Background="Gray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="NYCut_Click" ClickMode="Press"/>
+                    <AppBarButton  Grid.Column="2" Grid.Row="2" Icon="Redo"  Label="右转" Name="RightTurn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="RightTurn_Click" ClickMode="Press" /> 
+                </Grid>
+                <Button x:Name="ResetMachine" Grid.Row="7" Content="程序复位" Background="LightSeaGreen" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="2" Click="ResetMachine_Click"/>
+                <Button  Grid.Row="8" x:Name="Run" Content="运行程序" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Background="Green" Click="RunProgram_Click" Padding="2"/>
+                <MediaPlayerElement x:Name="RunMedia" AreTransportControlsEnabled="True"  AutoPlay="False" Visibility="Collapsed"/>
+                <ProgressRing x:Name="RunRing" Grid.Row="8" Foreground="LightYellow"   Margin="10,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Stretch"  />
+                <Button Grid.Row="9" x:Name="Stop" Content="停止程序"  HorizontalAlignment="Stretch"    VerticalAlignment="Stretch" Background="OrangeRed" Click="StopPgrogram_Click" Padding="2"/>
+                
+            </Grid>
+            
+            <Grid  Grid.Column="1" Background="AliceBlue">
+            
+                <ScrollViewer x:Name="MyScrollViewer"  ZoomMode="Enabled" DoubleTapped="MyScrollViewer_DoubleTapped">
+                    <Grid x:Name="MyGrid">
+                        <Button x:Name="MyButton" Height="100" Width="200"/>
+                    </Grid>
+                     
+                </ScrollViewer>
+                </Grid>
+         
+        </Grid>
+        <CommandBar Grid.Row="2" Background="AliceBlue" >
+            
+            <AppBarButton Icon="OpenFile"
+                          Label="打开文件"
+                          
+                          Click="OpenFile_Click" />
+            <AppBarButton Icon="GoToStart"
+                          Label="模拟路径"
+                          Click="GoToStart_Click" />
+            <AppBarButton Icon="Play"
+                          Label="未定义"
+                          Click="AppBarButton_Click" />
+            <AppBarButton Icon="Forward"
+                          Label="未定义"
+                          Click="Forward_Click" />
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="OtherUser"
+                              Label="用户"
+                              Click="AppBarButton_Click" />
+                <AppBarButton Icon="Setting"
+                              Label="设置"
+                              Click="Setting_Click" />
+            </CommandBar.SecondaryCommands>
+
+            <CommandBar.Content>
+                <TextBlock 
+                    x:Name="MessageText"
+                    Text="{x:Bind Warning,Mode=OneWay}"
+                           Margin="12,14" Foreground="{x:Bind MessageFontColoer,Mode=OneWay}" />
+            </CommandBar.Content>
+
+
+        </CommandBar>
+   
+    </Grid>
+</Page>

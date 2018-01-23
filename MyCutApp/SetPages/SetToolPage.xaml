@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="MyCutApp.SetPages.SetToolPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCutApp.SetPages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+        </Style>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="* "/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="背景语言:"    />
+        <ToggleSwitch x:Name="VoiceSwitch" Grid.Row="0" Grid.Column="1" OffContent="关闭"  OnContent="打开" Margin="30,0,0,0" Toggled="VoiceSwitch_Changed"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="运行时音乐:"/>
+        <ToggleSwitch x:Name="MusicSwitch" Grid.Row="1" Grid.Column="1" OffContent="关闭"  OnContent="打开" Margin="30,0,0,0" Toggled="MusicSwitch_Changed"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="未定义:"/>
+        <ToggleSwitch x:Name="NO1Switch" Grid.Row="2" Grid.Column="1" OffContent="关闭"  OnContent="打开" Margin="30,0,0,0" Toggled="NOSwitch_Changed"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="未定义:"/>
+        <ToggleSwitch x:Name="NO2Switch" Grid.Row="3" Grid.Column="1" OffContent="关闭"  OnContent="打开" Margin="30,0,0,0" Toggled="NOSwitch_Changed"/>
+        <Popup  x:Name="MyPopup" />
+    </Grid>
+        
+</Page>
